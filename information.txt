@@ -1,0 +1,6 @@
+it will have two view 
+- userviews 
+- admin view 
+
+
+
