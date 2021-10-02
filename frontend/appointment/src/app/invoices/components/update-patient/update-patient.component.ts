@@ -63,22 +63,9 @@ export class UpdatePatientComponent implements OnInit {
      }
      
 
-    //  onUpdate(){
+     onUpdate(){
 
-        
-    //    this.invoiceService.updatePatient( this.invoiceForm.value).subscribe(data=>{
-    //     this._snackBar.open('New Patient Record Updated' , 'Success' , {
-    //         duration:2000
-    //       })
-        
-    //    //  this.invoiceForm.reset();
-    //      this.router.navigate(['appointment'])
-    //      console.log(data);
-    //    },
-    //    err => this.errorHandler(err , 'Failed to create New Patient')
-    //    )
-      
-    //  }
+     }
 
      private errorHandler(error ,message ){
        console.log(error);
