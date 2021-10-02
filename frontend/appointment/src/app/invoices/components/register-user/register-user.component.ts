@@ -54,6 +54,10 @@ export class RegisterUserComponent implements OnInit {
     )
   }
 
+  goToRegister(){
+    this.router.navigate(['register']);
+  }
+
   saveBtnHandler(){
 
     this.router.navigate(['appointment' ,'new'])
