@@ -2,6 +2,7 @@
 const User = require("../models/user.model");
 const passport = require('passport')
 const bcrypt = require("bcrypt");
+const status = require('http-status');
 
 
 
@@ -10,6 +11,17 @@ function authController() {
 
     return {
 
+
+      async findUser(req, res, next) {
+
+        let result = await User.find({})
+        
+        if(!result){
+          res.status(status.INTERNAL_SERVER_ERROR).send("Server error")
+        }
+        res.status(status.ACCEPTED).send(result)
+      },
+  
 
         async postRegister(req, res,next) {
             const { name, email, password } = req.body;

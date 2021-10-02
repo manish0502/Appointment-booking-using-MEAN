@@ -20,7 +20,7 @@ function patientController() {
 
     async deleteOne(req, res, next) {
       
-      let {id } = req.params
+      let { id } = req.params
 
       let result = await Appointment.findByIdAndDelete(id)
       
@@ -92,24 +92,25 @@ function patientController() {
     },
 
 
-    async updateInvoice(req, res, next) {
-      const { item, qty, date, due, rate, tax } = req.body;
+    async updateAppointment(req, res, next) {
+
+      const { appointmentDate, email, name, age, contact} = req.body;
 
       try {
 
 
         const schema = Joi.object().keys({
 
-          item: Joi.string().optional(),
-          date: Joi.date().optional(),
-          due: Joi.date().optional(),
-          qty: Joi.number().integer()
-               .optional(),
-          rate: Joi.number().optional(),
-          tax: Joi.number().optional(),
+          appointmentDate: Joi.date().optional(),
+          email: Joi.string().min(4).optional().email(),
+          name: Joi.string().optional(),
+          age: Joi.number().optional(),
+          contact: Joi.number().optional(),
         })
   
-         const { error , value }= Joi.validate(req.body , schema);
+         const { error }= schema.validate(req.body);
+
+         const value = await schema.validateAsync(req.body);
 
          if(error && error.details){
            return res.status(status.BAD_REQUEST).json(error)
