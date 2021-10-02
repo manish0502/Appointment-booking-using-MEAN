@@ -4,11 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClientsComponent } from '../invoices/components/clients/clients.component';
 import { InvoiceListingComponent } from '../invoices/components/invoice-listing/invoice-listing.component';
 import { InvoiceComponent } from './invoice/invoice.component';
-import { MainContentComponent } from './main-content/main-content.component';
-import { Invoice } from '../invoices/models/invoice';
 import { RegisterComponent } from '../invoices/auth/register/register.component';
 import { LoginComponent } from '../invoices/auth/login/login.component';
 import { RegisterUserComponent} from '../invoices/components/register-user/register-user.component';
+import { UpdatePatientComponent } from '../invoices/components/update-patient/update-patient.component'
+
 
 const routes: Routes = [
 
@@ -44,6 +44,10 @@ const routes: Routes = [
       {
         path:'newuser',
         component:RegisterUserComponent
+      },
+      {
+        path:'appointment/update/:id',
+        component:UpdatePatientComponent
       },
       {
         path:'**',

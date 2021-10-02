@@ -52,7 +52,7 @@ export class InvoiceListingComponent implements OnInit {
   editBtnHandler(id){
     
     
-     this.router.navigate(['appointment' ,id])
+     this.router.navigate(['appointment/update' ,id])
 
   }
 

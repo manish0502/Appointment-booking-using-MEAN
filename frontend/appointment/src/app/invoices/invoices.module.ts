@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { UpdatePatientComponent } from './components/update-patient/update-patient.component';
 
 
 
@@ -21,7 +22,8 @@ import { RegisterUserComponent } from './components/register-user/register-user.
     InvoiceFormComponent,
     RegisterComponent,
     LoginComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    UpdatePatientComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { RegisterUserComponent } from './components/register-user/register-user.
     InvoiceFormComponent,
     RegisterComponent,
     LoginComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    UpdatePatientComponent
   ],
   providers:[InvoiceService]
 })

@@ -1,0 +1,53 @@
+<mat-card class="mat-elevation-z10">
+    <h3>Update Appointment Details</h3>
+    <!-- {{ this.invoiceForm.value | json}} -->
+    <form class="form-container" [formGroup]="invoiceForm" novalidate (ngSubmit)="onUpdate()">
+
+        <mat-form-field color="accent">
+            <input matInput placeholder="Enter Name" formControlName="name"> 
+            <mat-error *ngIf="invoiceForm.controls.name.invalid && invoiceForm.controls.name.touched">Name is required</mat-error>   
+        </mat-form-field>
+
+        <mat-form-field color="accent">
+            <input matInput [matDatepicker]="date" placeholder="Choose a date" formControlName="appointmentDate">
+            <mat-error *ngIf="invoiceForm.controls.appointmentDate.invalid && invoiceForm.controls.appointmentDate.touched">Date is required</mat-error>   
+
+            <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+            <mat-datepicker #date></mat-datepicker>
+        </mat-form-field>
+
+
+        <!-- <mat-form-field color="accent">
+            <input matInput [matDatepicker]="due" placeholder="Choose a due date" formControlName="due">
+            <mat-error *ngIf="invoiceForm.controls.due.invalid && invoiceForm.controls.due.touched">Due-Date is required</mat-error>   
+
+            <mat-datepicker-toggle matSuffix [for]="due"></mat-datepicker-toggle>
+            <mat-datepicker #due></mat-datepicker>
+        </mat-form-field> -->
+          
+
+
+        <mat-form-field color="accent">
+            <input matInput placeholder="Email" type="email" formControlName="email">  
+            <mat-error *ngIf="invoiceForm.controls.email.invalid && invoiceForm.controls.email.touched">Email is required</mat-error>   
+  
+        </mat-form-field>
+
+
+        <mat-form-field color="accent">
+            <input matInput placeholder="age" type="number" formControlName="age">    
+        </mat-form-field>
+
+
+        <mat-form-field color="accent">
+            <input matInput placeholder="Contact" type="number" formControlName="contact">    
+        </mat-form-field>
+        <div>
+            <button mat-raised-button [disabled]="!invoiceForm.valid" type="submit" color="accent">Update</button>
+            <button mat-raised-button type="reset" (click)="onCancel()">Cancel</button>
+
+        </div>
+
+    </form>
+      
+</mat-card>
