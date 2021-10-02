@@ -96,6 +96,18 @@ export class InvoiceService {
 
   }
 
+  updatePatient(id:string ,body:Appointment):Observable<Appointment[]>{
+    
+    return this.http.put<Appointment[]>(`${BASE_URL}/patient/${id}` ,body);
+
+  }
+
+  deletePatient(id:string):Observable<Appointment[]>{
+    
+    return this.http.delete<Appointment[]>(`${BASE_URL}/patient/${id}`);
+
+  }
+
   getUser():Observable<Register[]>{
     
     return this.http.get<Register[]>(`${BASE_URL}/user`);

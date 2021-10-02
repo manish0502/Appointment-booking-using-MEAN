@@ -14,10 +14,11 @@ import { remove } from 'lodash';
 })
 export class InvoiceListingComponent implements OnInit {
 
-  displayedColumns: string[] = ['appointmentDate', 'email', 'name', 'age' ,'contact' ,'createdAt' ];
+  displayedColumns: string[] = ['appointmentDate', 'email', 'name', 'age' ,'contact' ,'createdAt' ,'action' ];
 
   //displayedColumns: string[] = ['item', 'date', 'due', 'qty' ,'rate' ,'tax','action'];
   dataSource : Appointment[] =[];
+  //displayedColumns: string[] =body: Appointment[] 
 
   constructor(private invoiceService:InvoiceService ,
      private router:Router , private _snackBar: MatSnackBar) { }
@@ -57,14 +58,10 @@ export class InvoiceListingComponent implements OnInit {
 
   deleteBtnHandler(id){
 
-    this.invoiceService.deleteInvoice(id)
+    this.invoiceService.deletePatient(id)
     .subscribe(data=>{
 
-    //  remove(this.dataSource,(item) => {
-    //       return item._id === data._id
-    //  })
-
-      this._snackBar.open('Invoice Deleted' , 'Success' , {
+      this._snackBar.open(`pateint details with id ${id} is deleted successfully` , 'Success' , {
         duration:2000
       })
       console.log(data)
